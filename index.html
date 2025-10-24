@@ -1,0 +1,93 @@
+<!--
+Budņika Maskas — Web site package
+Files included below; copy each section into its respective file in your project folder.
+Structure:
+/ (root)
+  index.html
+  shop.html
+  product.html
+  about.html
+  contact.html
+  /assets/
+    /css/style.css
+    /js/main.js
+    /images/ (place your product images here: mask1.jpg, mask2.jpg, ...)
+
+All text is in Latvian and follows the PRD. No external frameworks used. Responsive layout using Grid/Flexbox. Simulated cart stored in localStorage. Animations: CSS transitions + small JS fog effect.
+-->
+
+<!-- filename: index.html -->
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Budņika maskas — Sākumlapa</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Budņika <span>maskas</span></a>
+      <nav class="nav">
+        <a href="index.html">Sākumlapa</a>
+        <a href="shop.html">Veikals</a>
+        <a href="about.html">Par mums</a>
+        <a href="contact.html">Kontakti</a>
+        <button id="cart-btn" class="cart-btn">Grozs (<span id="cart-count">0</span>)</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner container">
+        <h1 class="hero-title">Esi īpašs - izlaid savu iekšējo Budņiku!</h1>
+        <p class="hero-sub">Funkcionālas, šausmīgi biedējošas maskas un kostīmi — ideāli Helovīnam.</p>
+        <div class="hero-cta">
+          <a class="btn" href="shop.html">Apskatīt veikalu</a>
+        </div>
+      </div>
+      <div class="hero-fog" aria-hidden="true"></div>
+    </section>
+
+    <section class="featured container">
+      <h2>Pieprasītākie produkti</h2>
+      <div class="grid grid-3">
+        <article class="card">
+          <a href="product.html?id=1"><img src="assets/images/mask1.jpg" alt="Akmens sirds maska"></a>
+          <h3>Akmens sirds</h3>
+          <p class="price">€45</p>
+          <a class="btn small" href="product.html?id=1">Skatīt</a>
+        </article>
+        <article class="card">
+          <a href="product.html?id=2"><img src="assets/images/mask2.jpg" alt="Miglas kliedziens"></a>
+          <h3>Miglas kliedziens</h3>
+          <p class="price">€60</p>
+          <a class="btn small" href="product.html?id=2">Skatīt</a>
+        </article>
+        <article class="card">
+          <a href="product.html?id=3"><img src="assets/images/mask3.jpg" alt="Asins kroņi"></a>
+          <h3>Asins kroņi</h3>
+          <p class="price">€75</p>
+          <a class="btn small" href="product.html?id=3">Skatīt</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-preview container">
+      <h2>Par Budņika darbnīcu</h2>
+      <p>Budņika maskas ir radītas radošajiem prātiem — mēs apvienojam gotisko estētiku ar praktisku kostīmu dizainu.</p>
+      <a class="link" href="about.html">Uzzināt vairāk</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Budņika maskas — Visas tiesības aizsargātas</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
