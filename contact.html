@@ -1,0 +1,51 @@
+
+<!-- filename: contact.html -->
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kontakti — Budņika maskas</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Budņika <span>maskas</span></a>
+      <nav class="nav">
+        <a href="index.html">Sākumlapa</a>
+        <a href="shop.html">Veikals</a>
+        <a href="about.html">Par mums</a>
+        <a href="contact.html">Kontakti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container contact-page">
+    <h1>Kontakti</h1>
+    <p>Sazinies ar mums — aizpildi formu vai raksti uz <a href="mailto:info@budnika.lv">info@budnika.lv</a></p>
+    <form id="contact-form" class="contact-form">
+      <label>Vārds <input name="name" required></label>
+      <label>E-pasts <input name="email" type="email" required></label>
+      <label>Ziņa <textarea name="message" required></textarea></label>
+      <button class="btn" type="submit">Sūtīt</button>
+      <p id="contact-confirm" class="muted"></p>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Budņika maskas</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', e=>{
+      e.preventDefault();
+      document.getElementById('contact-confirm').textContent = 'Paldies! Tava ziņa ir saņemta (demonstrācijas režīms).';
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
