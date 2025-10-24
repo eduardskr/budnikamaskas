@@ -1,0 +1,70 @@
+
+<!-- filename: shop.html -->
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Veikals — Budņika maskas</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Budņika <span>maskas</span></a>
+      <nav class="nav">
+        <a href="index.html">Sākumlapa</a>
+        <a href="shop.html">Veikals</a>
+        <a href="about.html">Par mums</a>
+        <a href="contact.html">Kontakti</a>
+        <button id="cart-btn-2" class="cart-btn">Grozs (<span id="cart-count-2">0</span>)</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Veikals</h1>
+    <p class="muted">Klikšķini uz produkta, lai redzētu detaļas un simboliski pievienotu grozam.</p>
+
+    <div id="products" class="grid grid-3 products-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Budņika maskas</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // sample product data used by shop page
+    const PRODUCTS = [
+      {id:1,title:'Akmens sirds',price:45,img:'assets/images/mask1.jpg',desc:'Teksturēta lateksa maska ar akmens rakstu.'},
+      {id:2,title:'Miglas kliedziens',price:60,img:'assets/images/mask2.jpg',desc:'Puscaurspīdīga maska ar iebūvētu miglu (efekts).'},
+      {id:3,title:'Asins kroņi',price:75,img:'assets/images/mask3.jpg',desc:'Dekoratīvs kroņs ar akcentiem.'},
+      {id:4,title:'Sarkanais stāsts',price:50,img:'assets/images/mask4.jpg',desc:'Spilgta, teatrāla maska.'},
+      {id:5,title:'Nakts kliedziens',price:55,img:'assets/images/mask5.jpg',desc:'Viegls, elpojošs materiāls, labs kustībai.'}
+    ];
+
+    function renderProducts(){
+      const container = document.getElementById('products');
+      container.innerHTML = '';
+      PRODUCTS.forEach(p=>{
+        const el = document.createElement('article'); el.className='card';
+        el.innerHTML = `
+          <a href="product.html?id=${p.id}"><img src="${p.img}" alt="${p.title}"></a>
+          <h3>${p.title}</h3>
+          <p class="price">€${p.price}</p>
+          <button class="btn small add-to-cart" data-id="${p.id}">Pievienot grozam</button>
+        `;
+        container.appendChild(el);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded',()=>{
+      renderProducts();
+      attachCartButtons();
+    });
+  </script>
+</body>
+</html>
