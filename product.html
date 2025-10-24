@@ -1,0 +1,73 @@
+
+<!-- filename: product.html -->
+<!doctype html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Produkts — Budņika maskas</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Budņika <span>maskas</span></a>
+      <nav class="nav">
+        <a href="index.html">Sākumlapa</a>
+        <a href="shop.html">Veikals</a>
+        <a href="about.html">Par mums</a>
+        <a href="contact.html">Kontakti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container product-page">
+    <div id="product-detail" class="product-detail"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Budņika maskas</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // small product renderer reading ?id= query and using same PRODUCTS array as shop
+    const PRODUCTS_PAGE = [
+      {id:1,title:'Akmens sirds',price:45,img:'assets/images/mask1.jpg',desc:'Teksturēta lateksa maska ar akmens rakstu. Pieejamas dažādas izmēra regulācijas.'},
+      {id:2,title:'Miglas kliedziens',price:60,img:'assets/images/mask2.jpg',desc:'Puscaurspīdīga maska ar iebūvētu miglu (efekts).'},
+      {id:3,title:'Asins kroņi',price:75,img:'assets/images/mask3.jpg',desc:'Dekoratīvs kroņs ar akcentiem.'},
+      {id:4,title:'Sarkanais stāsts',price:50,img:'assets/images/mask4.jpg',desc:'Spilgta, teatrāla maska.'},
+      {id:5,title:'Nakts kliedziens',price:55,img:'assets/images/mask5.jpg',desc:'Viegls, elpojošs materiāls.'}
+    ];
+
+    function $(s){ return document.querySelector(s); }
+    function getIdFromQuery(){ const params = new URLSearchParams(location.search); return Number(params.get('id')||1); }
+
+    document.addEventListener('DOMContentLoaded',()=>{
+      const id = getIdFromQuery();
+      const p = PRODUCTS_PAGE.find(x=>x.id===id) || PRODUCTS_PAGE[0];
+      const container = document.getElementById('product-detail');
+      container.innerHTML = `
+        <div class="product-media">
+          <img src="${p.img}" alt="${p.title}">
+        </div>
+        <div class="product-info">
+          <h1>${p.title}</h1>
+          <p class="price">€${p.price}</p>
+          <p class="desc">${p.desc}</p>
+          <label>Izmērs:
+            <select id="size-select"><option>S</option><option>M</option><option>L</option></select>
+          </label>
+          <div class="actions">
+            <button class="btn add-to-cart" data-id="${p.id}">Pievienot grozam</button>
+            <a class="btn ghost" href="shop.html">Atpakaļ uz veikalu</a>
+          </div>
+        </div>
+      `;
+      attachCartButtons();
+    });
+  </script>
+</body>
+</html>
