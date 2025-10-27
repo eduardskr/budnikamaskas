@@ -22,15 +22,17 @@ All text is in Latvian and follows the PRD. No external frameworks used. Respons
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Budņika maskas — Sākumlapa</title>
+  <title>Budņika maskas — Radošās šausmas</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Budņika <span>maskas</span></a>
       <nav class="nav">
-        <a href="index.html">Sākumlapa</a>
+        <a href="index.html" class="active">Sākumlapa</a>
         <a href="shop.html">Veikals</a>
         <a href="about.html">Par mums</a>
         <a href="contact.html">Kontakti</a>
@@ -39,52 +41,61 @@ All text is in Latvian and follows the PRD. No external frameworks used. Respons
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-inner container">
-        <h1 class="hero-title">Esi īpašs - izlaid savu iekšējo Budņiku!</h1>
-        <p class="hero-sub">Funkcionālas, šausmīgi biedējošas maskas un kostīmi — ideāli Helovīnam.</p>
-        <div class="hero-cta">
-          <a class="btn" href="shop.html">Apskatīt veikalu</a>
-        </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <h1 class="hero-title">Esi īpašs - izlaid savu iekšējo Budņiku! </h1>
+      <p class="hero-sub">Budņika darbnīcā dzimst maskas, kas rada stāstus. Katrs dizains — roku darbs un stils, ko neaizmirst.</p>
+      <div class="hero-cta">
+        <a class="btn" href="shop.html">Atklāj kolekciju</a>
       </div>
-      <div class="hero-fog" aria-hidden="true"></div>
-    </section>
+    </div>
+    <div class="hero-fog"></div>
+  </section>
 
-    <section class="featured container">
-      <h2>Pieprasītākie produkti</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <a href="product.html?id=1"><img src="assets/images/mask1.jpg" alt="Akmens sirds maska"></a>
-          <h3>Akmens sirds</h3>
-          <p class="price">€45</p>
-          <a class="btn small" href="product.html?id=1">Skatīt</a>
-        </article>
-        <article class="card">
-          <a href="product.html?id=2"><img src="assets/images/mask2.jpg" alt="Miglas kliedziens"></a>
-          <h3>Miglas kliedziens</h3>
-          <p class="price">€60</p>
-          <a class="btn small" href="product.html?id=2">Skatīt</a>
-        </article>
-        <article class="card">
-          <a href="product.html?id=3"><img src="assets/images/mask3.jpg" alt="Asins kroņi"></a>
-          <h3>Asins kroņi</h3>
-          <p class="price">€75</p>
-          <a class="btn small" href="product.html?id=3">Skatīt</a>
-        </article>
-      </div>
-    </section>
+  <!-- Featured Products -->
+  <section class="featured container">
+    <h2>Izcelti produkti</h2>
+    <div class="grid grid-3">
+      <article class="card">
+        <a href="product.html?id=1">
+          <img src="assets/images/mask1.jpg" alt="Akmens sirds maska">
+        </a>
+        <h3>Akmens sirds</h3>
+        <p class="price">€45</p>
+        <a class="btn small" href="product.html?id=1">Skatīt</a>
+      </article>
+      <article class="card">
+        <a href="product.html?id=8">
+          <img src="assets/images/mask8.jpg" alt="Uguns seja maska">
+        </a>
+        <h3>Uguns seja</h3>
+        <p class="price">€80</p>
+        <a class="btn small" href="product.html?id=8">Skatīt</a>
+      </article>
+      <article class="card">
+        <a href="product.html?id=10">
+          <img src="assets/images/mask10.jpg" alt="Skeleta valdnieks maska">
+        </a>
+        <h3>Skeleta valdnieks</h3>
+        <p class="price">€85</p>
+        <a class="btn small" href="product.html?id=10">Skatīt</a>
+      </article>
+    </div>
+  </section>
 
-    <section class="about-preview container">
-      <h2>Par Budņika darbnīcu</h2>
-      <p>Budņika maskas ir radītas radošajiem prātiem — mēs apvienojam gotisko estētiku ar praktisku kostīmu dizainu.</p>
-      <a class="link" href="about.html">Uzzināt vairāk</a>
-    </section>
-  </main>
+  <!-- About Preview -->
+  <section class="about-preview container">
+    <h2>Māksla un funkcija vienā veidolā</h2>
+    <p>Budņika Maskas ir radošā darbnīca, kas apvieno gotisko estētiku ar mūsdienīgu materiālu tehnoloģiju. Mūsu mērķis — dot tev identitāti, ko nēsāt lepni.
+    </p> <br>
+    <a class="btn ghost" href="about.html">Uzzināt vairāk</a>
+  </section>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2025 Budņika maskas — Visas tiesības aizsargātas</p>
+      <p>© 2025 Budņika maskas — Radīts Latvijā ar tumsas piesitienu</p>
     </div>
   </footer>
 
