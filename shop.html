@@ -37,20 +37,25 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    // sample product data used by shop page
+    // Produkta dati (10 produkti)
     const PRODUCTS = [
       {id:1,title:'Akmens sirds',price:45,img:'assets/images/mask1.jpg',desc:'Teksturēta lateksa maska ar akmens rakstu.'},
       {id:2,title:'Miglas kliedziens',price:60,img:'assets/images/mask2.jpg',desc:'Puscaurspīdīga maska ar iebūvētu miglu (efekts).'},
       {id:3,title:'Asins kroņi',price:75,img:'assets/images/mask3.jpg',desc:'Dekoratīvs kroņs ar akcentiem.'},
       {id:4,title:'Sarkanais stāsts',price:50,img:'assets/images/mask4.jpg',desc:'Spilgta, teatrāla maska.'},
-      {id:5,title:'Nakts kliedziens',price:55,img:'assets/images/mask5.jpg',desc:'Viegls, elpojošs materiāls, labs kustībai.'}
+      {id:5,title:'Nakts kliedziens',price:55,img:'assets/images/mask5.jpg',desc:'Viegls, elpojošs materiāls, labs kustībai.'},
+      {id:6,title:'Melnais sapnis',price:70,img:'assets/images/mask6.jpg',desc:'Tumša, spīdīga maska ar sudraba detaļām.'},
+      {id:7,title:'Klusais rēgs',price:65,img:'assets/images/mask7.jpg',desc:'Matēta virsma, minimālistisks dizains.'},
+      {id:8,title:'Uguns seja',price:80,img:'assets/images/mask8.jpg',desc:'Sarkani oranža maska ar liesmu rakstu.'},
+      {id:9,title:'Dūmu pavēlnieks',price:90,img:'assets/images/mask9.jpg',desc:'Melnbalta maska ar dūmu efektu.'}
     ];
 
     function renderProducts(){
       const container = document.getElementById('products');
       container.innerHTML = '';
       PRODUCTS.forEach(p=>{
-        const el = document.createElement('article'); el.className='card';
+        const el = document.createElement('article');
+        el.className = 'card';
         el.innerHTML = `
           <a href="product.html?id=${p.id}"><img src="${p.img}" alt="${p.title}"></a>
           <h3>${p.title}</h3>
@@ -61,9 +66,9 @@
       });
     }
 
-    document.addEventListener('DOMContentLoaded',()=>{
+    document.addEventListener('DOMContentLoaded', ()=>{
       renderProducts();
-      attachCartButtons();
+      if (typeof attachCartButtons === 'function') attachCartButtons();
     });
   </script>
 </body>
