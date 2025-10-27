@@ -1,4 +1,3 @@
-
 <!-- filename: product.html -->
 <!doctype html>
 <html lang="lv">
@@ -33,21 +32,30 @@
 
   <script src="assets/js/main.js"></script>
   <script>
-    // small product renderer reading ?id= query and using same PRODUCTS array as shop
+    // Produktu dati (10 produkti)
     const PRODUCTS_PAGE = [
       {id:1,title:'Akmens sirds',price:45,img:'assets/images/mask1.jpg',desc:'Teksturēta lateksa maska ar akmens rakstu. Pieejamas dažādas izmēra regulācijas.'},
       {id:2,title:'Miglas kliedziens',price:60,img:'assets/images/mask2.jpg',desc:'Puscaurspīdīga maska ar iebūvētu miglu (efekts).'},
-      {id:3,title:'Asins kroņi',price:75,img:'assets/images/mask3.jpg',desc:'Dekoratīvs kroņs ar akcentiem.'},
-      {id:4,title:'Sarkanais stāsts',price:50,img:'assets/images/mask4.jpg',desc:'Spilgta, teatrāla maska.'},
-      {id:5,title:'Nakts kliedziens',price:55,img:'assets/images/mask5.jpg',desc:'Viegls, elpojošs materiāls.'}
+      {id:3,title:'Asins kroņi',price:75,img:'assets/images/mask3.jpg',desc:'Dekoratīvs kroņs ar akcentiem, piemērots skatuves uzvedumiem.'},
+      {id:4,title:'Sarkanais stāsts',price:50,img:'assets/images/mask4.jpg',desc:'Spilgta, teatrāla maska ar dramatisku noskaņu.'},
+      {id:5,title:'Nakts kliedziens',price:55,img:'assets/images/mask5.jpg',desc:'Viegls, elpojošs materiāls, kas piemērots aktīvai kustībai.'},
+      {id:6,title:'Melnais sapnis',price:70,img:'assets/images/mask6.jpg',desc:'Tumša, spīdīga maska ar sudraba detaļām un gotisku dizainu.'},
+      {id:7,title:'Klusais rēgs',price:65,img:'assets/images/mask7.jpg',desc:'Matēta virsma un minimālistisks dizains – klusuma spēks Helovīnam.'},
+      {id:8,title:'Uguns seja',price:80,img:'assets/images/mask8.jpg',desc:'Sarkani oranža maska ar liesmu rakstu — ideāli nakts ballītei.'},
+      {id:9,title:'Dūmu pavēlnieks',price:90,img:'assets/images/mask9.jpg',desc:'Melnbalta maska ar dūmu efektu, kas rada mistisku iespaidu.'}
     ];
 
+    // Palīgfunkcijas
     function $(s){ return document.querySelector(s); }
-    function getIdFromQuery(){ const params = new URLSearchParams(location.search); return Number(params.get('id')||1); }
+    function getIdFromQuery(){
+      const params = new URLSearchParams(location.search);
+      return Number(params.get('id') || 1);
+    }
 
-    document.addEventListener('DOMContentLoaded',()=>{
+    // Galvenā renderēšana
+    document.addEventListener('DOMContentLoaded', ()=>{
       const id = getIdFromQuery();
-      const p = PRODUCTS_PAGE.find(x=>x.id===id) || PRODUCTS_PAGE[0];
+      const p = PRODUCTS_PAGE.find(x => x.id === id) || PRODUCTS_PAGE[0];
       const container = document.getElementById('product-detail');
       container.innerHTML = `
         <div class="product-media">
@@ -58,7 +66,11 @@
           <p class="price">€${p.price}</p>
           <p class="desc">${p.desc}</p>
           <label>Izmērs:
-            <select id="size-select"><option>S</option><option>M</option><option>L</option></select>
+            <select id="size-select">
+              <option>S</option>
+              <option>M</option>
+              <option>L</option>
+            </select>
           </label>
           <div class="actions">
             <button class="btn add-to-cart" data-id="${p.id}">Pievienot grozam</button>
@@ -66,7 +78,7 @@
           </div>
         </div>
       `;
-      attachCartButtons();
+      if (typeof attachCartButtons === 'function') attachCartButtons();
     });
   </script>
 </body>
